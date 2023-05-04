@@ -1,0 +1,12 @@
+{
+  "name": "test-challenge",
+  "version": "1.0.0",
+  "description": "Apprendre à écrire des [tests unitaire](https://fr.wikipedia.org/wiki/Test_unitaire#:~:text=En%20programmation%20informatique%2C%20le%20test,%C2%BB%20ou%20%C2%AB%20module%20%C2%BB).) sur [Node.js](https://nodejs.org/en/) (et indirectement vous améliorer en JavaScript). Cet exercice vous nécessitera de la perseverance et de l'autonomie!",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {},
+  "author": "",
+  "license": "ISC"
+}
