@@ -13,7 +13,7 @@ describe("add function", () => {
         assert.throws(()=> add(a, b), TypeError);
     });
     
-    it("should throw an error if type isn't number for the first argument", () => {
+    it("should throw an error if type isn't number for the second argument", () => {
         const a = 5;
         const b = "a string";
         assert.throws(()=> add(a, b), TypeError);
@@ -25,5 +25,5 @@ describe("add function", () => {
         const result = add(a, b);
         assert.ok(typeof a, b, result === "number");
     });
-    
+
 });
