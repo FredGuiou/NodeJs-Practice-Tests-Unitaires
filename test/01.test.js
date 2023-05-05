@@ -1,12 +1,13 @@
-//Import des nodeJs dependencies
-const { describe, it } = require('node:test');
-const assert = require('node:assert');
+"use strict";
 
-//Import des fonctions à tester
-const { add, calc_moy } = require('../01.js');
+// Import des nodeJs dependencies
+const { describe, it } = require("node:test");
+const assert = require("node:assert");
+
+// Import des fonctions à tester
+const { add, calc_moy, STATE } = require("../01.js");
 
 describe("add function", () => {
-
   it("make an addition of the two arguments", () => {
     assert.strictEqual(add(6, 8), 14);
     assert.strictEqual(add(-6, -8), -14);
@@ -27,11 +28,9 @@ describe("add function", () => {
   it("throws an error if \"b\" type isn't \"number\"", () => {
     assert.throws(() => add(3, "notNumberArgument"), TypeError, "b must be a number");
   });
-
 });
 
 describe("calc_moy function", () => {
-
   it("throws an error if argument type isn't \"array\"", () => {
     assert.throws(() => calc_moy("notAnArrayArgument"), TypeError, "nums must be an array!");
   });
@@ -46,5 +45,20 @@ describe("calc_moy function", () => {
     assert.strictEqual(calc_moy(["string", 2, 3, 4, 5]), NaN);
     assert.strictEqual(calc_moy([]), NaN);
   });
+});
 
+describe(STATE, () => {
+  it("Should have properties and values", () => {
+    assert.strictEqual(STATE.run, 0);
+    assert.strictEqual(STATE.walk, 1);
+    assert.strictEqual(STATE.idle, 2);
+  });
+
+  it("Shouldn't accept new propertie", () => {
+    assert.throws(() => {
+      STATE.newProperty = 3;
+    }, TypeError, "Object is frozen, no more property addable !");
+    const initialState = { ...STATE };
+    assert.deepStrictEqual(STATE, initialState);
+  });
 });
