@@ -1,29 +1,46 @@
 //Import des nodeJs dependencies
-const { describe, it} = require('node:test');
+const { describe, it } = require('node:test');
 const assert = require('node:assert');
 
 //Import des fonctions à tester
-const { add } = require('../01.js');
+const { add, calc_moy } = require('../01.js');
 
 describe("add function", () => {
     
-    it("should throw an error if type isn't number for the first argument", () => {
-        const a = "a string";
-        const b = 6;
-        assert.throws(()=> add(a, b), TypeError);
-    });
-    
-    it("should throw an error if type isn't number for the second argument", () => {
-        const a = 5;
-        const b = "a string";
-        assert.throws(()=> add(a, b), TypeError);
+    it("make an addition of the two arguments", () => {
+        assert.strictEqual(add(6, 8), 14);
+        assert.strictEqual(add(-6, -8), -14);
+        assert.strictEqual(add(0, 0), 0);
     });
 
-    it("must get and return a type \"number\"", () => {
-        const a = 5;
-        const b = 6;
-        const result = add(a, b);
-        assert.ok(typeof a, b, result === "number");
+    
+    it("use default value = 10 for argument b if not specified", () => {
+        assert.strictEqual(add(6), 16);
+        assert.strictEqual(add(-6), 4);
+        assert.strictEqual(add(0), 10);
+    });
+    
+    it("throws an error if arguments type isn't \"number\"", () => {
+        assert.throws(() => add("notNumberArgument", 3 ), TypeError);
+        assert.throws(() => add(3, "notNumberArgument"), TypeError);
+        assert.throws(() => add("notNumberArgument", -2 ), TypeError);
+        assert.throws(() => add(-2, "notNumberArgument"), TypeError);
+        assert.throws(() => add("notNumberArgument", 0 ), TypeError);
+        assert.throws(() => add(0, "notNumberArgument"), TypeError);
+        assert.throws(() => add("notNumberArgument"), TypeError);
+    });
+});
+
+describe("calc_moy function", () => {
+
+    it("throws an error if arguments type isn't \"array\"", () => {
+        assert.throws(() => calc_moy("notAnArrayArgument"), TypeError);
+    });
+
+    it("process an average mathematic operation", () => {
+        assert.strictEqual(calc_moy([1, 2, 3, 4, 5]), 3);
+        assert.strictEqual(calc_moy([10, 20, 30]), 20);
+        assert.strictEqual(calc_moy([-5, 5]), 0);
     });
 
 });
