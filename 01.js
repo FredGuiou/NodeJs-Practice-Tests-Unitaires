@@ -4,7 +4,7 @@
  * @param {!Number} a
  * @param {!Number} b
  * @returns {Number}
- * 
+ *
  * @throws {TypeError}
  */
 function add(a, b = 10) {
@@ -23,7 +23,7 @@ function add(a, b = 10) {
  * @desc Calcule d'une moyenne à partir d'un tableau de nombre
  * @param {!Number[]} nums
  * @returns {Number}
- * 
+ *
  * @throws {TypeError}
  */
 function calc_moy(nums = []) {

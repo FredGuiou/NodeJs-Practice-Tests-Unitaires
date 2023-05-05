@@ -8,5 +8,8 @@
   },
   "scripts": {},
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "@nodesecure/eslint-config": "github:nodesecure/eslint-config"
+  }
 }
