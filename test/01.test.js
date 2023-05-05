@@ -20,21 +20,20 @@ describe("add function", () => {
         assert.strictEqual(add(0), 10);
     });
     
-    it("throws an error if arguments type isn't \"number\"", () => {
-        assert.throws(() => add("notNumberArgument", 3 ), TypeError);
-        assert.throws(() => add(3, "notNumberArgument"), TypeError);
-        assert.throws(() => add("notNumberArgument", -2 ), TypeError);
-        assert.throws(() => add(-2, "notNumberArgument"), TypeError);
-        assert.throws(() => add("notNumberArgument", 0 ), TypeError);
-        assert.throws(() => add(0, "notNumberArgument"), TypeError);
-        assert.throws(() => add("notNumberArgument"), TypeError);
+    it("throws an error if \"a\" type isn't \"number\"", () => {
+        assert.throws(() => add("notNumberArgument"), TypeError, "a must be a number");
     });
+
+    it("throws an error if \"b\" type isn't \"number\"", () => {
+        assert.throws(() => add(3, "notNumberArgument"), TypeError, "b must be a number");
+    });
+
 });
 
 describe("calc_moy function", () => {
 
-    it("throws an error if arguments type isn't \"array\"", () => {
-        assert.throws(() => calc_moy("notAnArrayArgument"), TypeError);
+    it("throws an error if argument type isn't \"array\"", () => {
+        assert.throws(() => calc_moy("notAnArrayArgument"), TypeError, "nums must be an array!");
     });
 
     it("process an average mathematic operation", () => {
@@ -43,4 +42,9 @@ describe("calc_moy function", () => {
         assert.strictEqual(calc_moy([-5, 5]), 0);
     });
 
+    it("throws \"NaN\" if array empty , or one of elements isn't type \"number\"", () => {
+        assert.strictEqual(calc_moy(["string", 2, 3, 4, 5]), NaN);
+        assert.strictEqual(calc_moy([]), NaN);
+    });
+    
 });
