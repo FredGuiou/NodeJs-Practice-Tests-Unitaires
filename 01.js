@@ -1,3 +1,4 @@
+"use strict";
 /**
  * @func add
  * @desc Addition entre l'argument a et b
@@ -8,14 +9,14 @@
  * @throws {TypeError}
  */
 function add(a, b = 10) {
-    if (typeof a !== "number") {
-        throw new TypeError("a must be a number");
-    }
-    if (typeof b !== "number") {
-        throw new TypeError("b must be a number");
-    }
+  if (typeof a !== "number") {
+    throw new TypeError("a must be a number");
+  }
+  if (typeof b !== "number") {
+    throw new TypeError("b must be a number");
+  }
 
-    return a + b;
+  return a + b;
 }
 
 /**
@@ -27,21 +28,21 @@ function add(a, b = 10) {
  * @throws {TypeError}
  */
 function calc_moy(nums = []) {
-    if (!Array.isArray(nums)) {
-        throw new TypeError("nums must be an array!");
-    }
+  if (!Array.isArray(nums)) {
+    throw new TypeError("nums must be an array!");
+  }
 
-    return nums.reduce((acc, curr) => curr + acc, 0) / nums.length;
+  return nums.reduce((acc, curr) => curr + acc, 0) / nums.length;
 }
 
 const STATE = Object.freeze({
-    run: 0,
-    walk: 1,
-    idle: 2
+  run: 0,
+  walk: 1,
+  idle: 2
 });
 
 module.exports = {
-    add,
-    calc_moy,
-    STATE
+  add,
+  calc_moy,
+  STATE
 };
