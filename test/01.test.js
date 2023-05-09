@@ -55,10 +55,11 @@ describe(STATE, () => {
   });
 
   it("Shouldn't accept new propertie", () => {
-    assert.throws(() => {
-      STATE.newProperty = 3;
-    }, TypeError, "Object is frozen, no more property addable !");
-    const initialState = { ...STATE };
-    assert.deepStrictEqual(STATE, initialState);
+    // assert.throws(() => {
+    //   STATE.newProperty = 3;
+    // }, TypeError, "Object is frozen, no more property addable !");
+    // const initialState = { ...STATE };
+    // assert.deepStrictEqual(STATE, initialState);
+    assert.ok(Object.isFrozen(STATE), "should equal true because the provided Object is expected to be frozen");
   });
 });
