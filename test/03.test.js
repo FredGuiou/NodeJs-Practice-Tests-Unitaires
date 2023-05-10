@@ -4,8 +4,6 @@ const { describe, it } = require("node:test");
 const assert = require("node:assert");
 
 // Import des fonctions à tester
-// const { name, callGreet, addProperty, greet } = require("../03.js");
-
 const User = require("../03.js");
 
 describe("User name test", () => {
@@ -17,6 +15,12 @@ describe("User name test", () => {
 describe("User callGreet test", () => {
   it("Should have the correct initial value for callGreet property", () => {
     assert.strictEqual(User.callGreet, 0);
+  });
+});
+
+describe("User addProperty test", () => {
+  it("should return true or false", () => {
+    assert.ok(() => User.addProperty());
   });
 });
 
