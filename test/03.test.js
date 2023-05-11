@@ -19,8 +19,8 @@ describe("User callGreet test", () => {
 });
 
 describe("User addProperty test", () => {
-  it("should return true or false", () => {
-    assert.ok(() => User.addProperty());
+  it("should return false", () => {
+    assert.ok(User.addProperty());
   });
 });
 
