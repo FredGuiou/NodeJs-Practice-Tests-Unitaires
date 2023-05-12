@@ -40,9 +40,9 @@ describe("Vector constructor test", () => {
     vec1.add(vec2);
     vec1.add(vec3);
 
-    assert.strictEqual(vec1.x, 12);
-    assert.strictEqual(vec1.y, 15);
-    assert.strictEqual(vec1.z, 18);
+    assert.strictEqual(vec1.x, 1 + vec2.x + vec3.x);
+    assert.strictEqual(vec1.y, 2 + vec2.y + vec3.y);
+    assert.strictEqual(vec1.z, 3 + vec2.z + vec3.z);
   });
 
   it("add can use an return negative values", () => {
