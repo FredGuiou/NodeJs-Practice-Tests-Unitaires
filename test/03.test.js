@@ -20,7 +20,7 @@ describe("User callGreet test", () => {
 
 describe("User addProperty test", () => {
   it("should return false", () => {
-    assert.ok(User.addProperty());
+    assert.strictEqual(User.addProperty(), false);
   });
 });
 
