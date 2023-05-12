@@ -1,34 +1,36 @@
+"use strict";
+
 const EventEmitter = require("events");
 
 const SimReady = Symbol("ready");
 
 class Server extends EventEmitter {
-    constructor() {
-        super();
-        Reflect.defineProperty(this, SimReady, {
-            enumerable: false,
-            configurable: false,
-            writable: true,
-            value: false
-        });
+  constructor() {
+    super();
+    Reflect.defineProperty(this, SimReady, {
+      enumerable: false,
+      configurable: false,
+      writable: true,
+      value: false
+    });
 
-        setTimeout(() => {
-            this.emit("ready");
-            this[SimReady] = true;
-        }, 500);
+    setTimeout(() => {
+      this.emit("ready");
+      this[SimReady] = true;
+    }, 500);
+  }
+
+  get isReady() {
+    return this[SimReady];
+  }
+
+  callMeMaybe() {
+    if (!this.isReady) {
+      throw new Error("Server must be ready!");
     }
 
-    get isReady() {
-        return this[SimReady];
-    }
-
-    callMeMaybe() {
-        if (!this.isReady) {
-            throw new Error("Server must be ready!");
-        }
-
-        process.stdout.write(Server.OHNO ? "WELL DONE!" : "FOO BAR!");
-    }
+    process.stdout.write(Server.OHNO ? "WELL DONE!" : "FOO BAR!");
+  }
 }
 Server.OHNO = true;
 
