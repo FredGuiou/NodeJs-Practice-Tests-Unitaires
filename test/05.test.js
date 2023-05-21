@@ -8,15 +8,6 @@ const assert = require("node:assert");
 const Server = require("../05.js");
 
 // Ensemble des test
-describe("Server setTimeout", () => {
-  it("Should send \"ready\" and return SimReady \"true\" after 500 ms", () => {
-    const server = new Server();
-    server.once("ready", () => {
-      console.log("Server is ready");
-    });
-  });
-});
-
 describe("Server getter isReady", () => {
   it("Should set isReady true when ready is emited", () => {
     const server = new Server();
