@@ -5,7 +5,6 @@ const { describe, it } = require("node:test");
 const assert = require("node:assert");
 
 // Import des fonctions à tester
-// const { oP, handler } = require("./06.js");
 const proxy = require("../06.js");
 
 // Ensemble des test
