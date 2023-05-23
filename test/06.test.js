@@ -31,7 +31,8 @@ describe("handler_set", () => {
   });
 
   it("Should set the value on the object's property", () => {
-    assert.strictEqual(proxy.foo = 30, 30);
+    proxy.foo = 30;
+    assert.strictEqual(proxy.foo, 900);
   });
 });
 
