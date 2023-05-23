@@ -7,7 +7,7 @@ function* boo(coef) {
 
 function* foo(coef = 0) {
   yield 1 + coef;
-  yield* boo();
+  yield* boo(coef);
   yield 0n;
 }
 
